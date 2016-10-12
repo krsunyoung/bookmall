@@ -30,12 +30,12 @@ public class CartDao {
 		int result= 0;
 		try{
 			conn = getConnection();
-			String sql ="update ordergo set address = ? where no=?";
+			String sql ="update ordergo set address = ? where book_no=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			
-			pstmt.setString(1, vo.getAddress());
-			pstmt.setLong(2, vo.getNo());
+			pstmt.setInt(1, vo.getCount());
+			pstmt.setLong(2, vo.getBook_no());
 			
 			result = pstmt.executeUpdate();
 			
